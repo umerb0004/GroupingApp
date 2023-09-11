@@ -1,0 +1,7 @@
+<% if @group.persisted? %>
+  <%= turbo_stream.replace :new_group do %>
+    <%= turbo_frame_tag :new_group %>
+  <% end %>
+  <%= turbo_stream.append 'groups', partial: 'group', locals: { group: @group } %>
+<% end %>
+<%= turbo_stream.update('flash', partial: 'layouts/shared/flash') %>

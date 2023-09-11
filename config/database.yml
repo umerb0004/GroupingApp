@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Meetup_development
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: Meetup_test
+  username: postgres
+  password: postgres

@@ -1,0 +1,4 @@
+<% if @group.errors.blank? %>
+  <%= turbo_stream.replace dom_id(@group), partial: 'group', locals: { group: @group } %>
+<% end %>
+<%= turbo_stream.update('flash', partial: 'layouts/shared/flash') %>

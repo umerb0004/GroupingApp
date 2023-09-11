@@ -1,0 +1,13 @@
+<tr>
+  <td class="px-20 py-2"><%= user.first_name %></td>
+  <td class="px-20 py-2"><%= user.last_name %></td>
+  <td class="px-20 py-2">
+    <%= check_box_tag "group[organizer][]", user.id, membership_roles(group, user).include?('organizer') %>
+  </td>
+  <td class="px-20 py-2">
+    <%= check_box_tag "group[presenter][]", user.id, membership_roles(group, user).include?('presenter') %>
+  </td>
+  <td class="px-20 py-2">
+    <%= check_box_tag "group[participant][]", user.id, membership_roles(group, user).include?('participant') %>
+  </td>
+</tr>

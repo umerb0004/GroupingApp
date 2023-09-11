@@ -1,0 +1,12 @@
+<%= turbo_frame_tag dom_id(group) do %>
+  <div class='flex justify-between items-center border border-gray-100 rounded-lg p-6 m-2 bg-white'>
+    <p class='w-40'><%= group&.name %></p>
+    <p>
+      <%= organizers_names(group) %>
+    </p>
+    <div class='flex'>
+      <%= link_to 'Edit', edit_group_path(group), class: 'btn bg-gray-200 p-2 w-20 text-center rounded-md mr-2' %>
+      <%= button_to 'Delete', group_path(group), method: :delete, class: 'btn bg-red-100 p-2 w-20 text-center rounded-md mr-2', data: { controller: :dialog, action: 'click->dialog#confirmDelete'} %>
+    </div>
+  </div>
+<% end %>

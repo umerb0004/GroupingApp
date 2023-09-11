@@ -1,0 +1,30 @@
+<div class="p-4 rounded-md bg-indigo-50 m-2">
+  <%= form_with(model: group, id: 'form', class: "contents") do |form| %>
+    <div class="my-5">
+      <%= form.label :group_name %>
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    <div class="bg-white p-4 rounded-md mt-4 border">
+      <h2 class="text-lg font-bold text-2xl mb-4">Assign Users</h2>
+      <table class="w-full">
+        <thead>
+          <tr>
+            <th class="py-2">First Name</th>
+            <th class="py-2">Last Name</th>
+            <th class="py-2">Organizer</th>
+            <th class="py-2">Presenter</th>
+            <th class="py-2">Participant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "user", collection: @users, locals: { group: group } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex justify-center mt-5">
+      <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium" %>
+      <%= link_to "Cancel", groups_path, class: "ml-2 rounded-lg py-3 px-5 bg-white inline-block font-medium" %>
+    </div>
+  <% end %>
+</div>
+

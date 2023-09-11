@@ -1,0 +1,20 @@
+<div class='w-full mt-24'>
+  <div class='w-4/5 m-auto'>
+    <%= turbo_frame_tag :new_group %>
+  </div>
+  <%= turbo_stream_from :groups %>
+  <div class='w-4/5 m-auto'>
+    <div class='flex justify-between items-center border border-gray-100 rounded p-6 m-2 text-lg font-medium bg-gray-200 h-1'>
+      <p>Group Name</p>
+      <p>Organizers</p>
+      <p>Actions</p>
+    </div>
+    <%= turbo_frame_tag :groups do %>
+      <%= render @groups %>
+    <% end %>
+  </div>
+  <div class='text-center bg-gray-200 py-4'>
+    <p>&copy; MeetUp App</p>
+  </div>
+</div>
+

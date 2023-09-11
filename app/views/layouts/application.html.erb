@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meetup</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'inter-font', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'tailwind', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <main class='container mx-auto mt-2 px-5 flex font-sans bg-gray-100'>
+      <div class='absolute top-28'>
+        <%= render template: 'nav_bar' %>
+        <div class="flex absolute z-10 w-96">
+          <turbo-frame id='flash'>
+            <%= render 'layouts/shared/flash' %>
+          </turbo-frame>
+        </div>
+      </div>
+      <%= yield %>
+    </main>
+  </body>
+</html>
